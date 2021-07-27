@@ -17,6 +17,7 @@ int _printf(const char *format, ...)
 		{"i", print_i},
 		{"d", print_d},
 		{"%", print_p},
+		{"u", print_u},
 		{NULL, NULL}
 	};
 	va_list ap;

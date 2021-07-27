@@ -64,3 +64,25 @@ void print(int n)
 		print(n / 10);
 	_putchar(n % 10 + '0');
 }
+
+/**
+ * print_u - prints an unsigned int.
+ * @arg: argument
+ * Return: 0
+ */
+
+int print_u(va_list arg)
+{
+int dv = 1, i, resp;
+unsigned int n = va_arg(arg, unsigned int);
+
+for (i = 0; n / dv > 9; i++, dv *= 10)
+;
+
+for (; dv >= 1; n %= dv, dv /= 10)
+{
+resp = n / dv;
+_putchar('0' + resp);
+}
+return (i + 1);
+}

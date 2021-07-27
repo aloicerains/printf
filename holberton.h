@@ -20,5 +20,5 @@ int print_s(va_list);
 int print_i(va_list);
 int print_d(va_list);
 int print_p(va_list);
-
+int print_u(va_list arg);
 #endif
