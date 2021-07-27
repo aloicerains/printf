@@ -18,11 +18,12 @@ int _printf(const char *format, ...)
 		{"d", print_d},
 		{"%", print_p},
 		{"u", print_u},
+		{"o", print_o},
+		{"b", print_b},
 		{NULL, NULL}
 	};
 	va_list ap;
 	const char *fptr = NULL;
-
 	va_start(ap, format);
 	fptr = format;
 	while (fptr != NULL && fptr[k] != '\0')
@@ -46,8 +47,8 @@ int _printf(const char *format, ...)
 				i++;
 			}
 		}
-		k++;
+	k++;
 	}
-	va_end(ap);
-	return (len);
+va_end(ap);
+return (len);
 }
