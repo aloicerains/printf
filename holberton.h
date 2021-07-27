@@ -12,6 +12,7 @@ typedef struct format_specifier
 	char *spec;
 	int (*f)(va_list ap);
 } form;
+int _putchar(char c);
 int _printf(const char *format, ...);
 void print(int n);
 int print_c(va_list);

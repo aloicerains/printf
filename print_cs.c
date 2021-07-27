@@ -7,12 +7,13 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <stddef.h>
+#include "holberton.h"
 int print_c(va_list ap)
 {
 	char i;
 
 	i = va_arg(ap, int);
-	putchar(i);
+	_putchar(i);
 	return (1);
 }
 /**
@@ -32,13 +33,13 @@ int print_s(va_list ap)
 	{
 		while (*nil != '\0')
 		{
-			putchar(*nil);
+			_putchar(*nil);
 			++nil;
 		}
 	}
 	while (s != NULL && *s != '\0')
 	{
-		putchar(*s);
+		_putchar(*s);
 		++s;
 		len++;
 	}

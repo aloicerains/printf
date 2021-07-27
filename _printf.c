@@ -5,7 +5,6 @@
  * Return: number of characters printed
  */
 #include <stdarg.h>
-#include <string.h>
 #include "holberton.h"
 #include <stdio.h>
 int _printf(const char *format, ...)
@@ -29,7 +28,7 @@ int _printf(const char *format, ...)
 	{
 		if (fptr[k] != '%')
 		{
-			putchar(fptr[k]);
+			_putchar(fptr[k]);
 			len++;
 		}
 		if (fptr[k] == '%')
@@ -49,5 +48,5 @@ int _printf(const char *format, ...)
 		k++;
 	}
 	va_end(ap);
-	return (len + 1);
+	return (len);
 }
