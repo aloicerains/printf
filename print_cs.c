@@ -10,7 +10,7 @@
 #include "holberton.h"
 int print_c(va_list ap)
 {
-	char i;
+	unsigned int i;
 
 	i = va_arg(ap, int);
 	_putchar(i);
@@ -26,24 +26,23 @@ int print_s(va_list ap)
 {
 	char *s;
 	int len = 0;
-	char *nil = "(null)";
+	int i = 0;
 
 	s = va_arg(ap, char*);
 	if (s == NULL)
 	{
-		while (*nil != '\0')
+		s = "(null)";
+		len = -1;
+	}
+	if (s != NULL && s[i] != '\0')
+	{
+		while (s[i] != '\0')
 		{
-			_putchar(*nil);
-			++nil;
+			_putchar(s[i]);
+			i++;
+			len++;
 		}
 	}
-	while (s != NULL && *s != '\0')
-	{
-		_putchar(*s);
-		++s;
-		len++;
-	}
-
 	return (len);
 }
 

@@ -10,7 +10,6 @@
 #include "holberton.h"
 int print_i(va_list ap)
 {
-	void print(int n);
 	int i;
 
 	i = va_arg(ap, int);
@@ -25,7 +24,6 @@ int print_i(va_list ap)
  */
 int print_d(va_list ap)
 {
-	void print(int n);
 	int i;
 
 	i = va_arg(ap, int);
@@ -55,14 +53,16 @@ int print_p(va_list ap)
  */
 void print(int n)
 {
+	unsigned int v;
+	v = n;
 	if (n < 0)
 	{
 		_putchar('-');
-		n = -n;
+		v = -n;
 	}
-	if (n / 10)
-		print(n / 10);
-	_putchar(n % 10 + '0');
+	if (v / 10)
+		print(v / 10);
+	_putchar(v % 10 + '0');
 }
 
 /**

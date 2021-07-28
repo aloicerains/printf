@@ -46,9 +46,21 @@ int _printf(const char *format, ...)
 				}
 				i++;
 			}
+			if (!sp[i].spec)
+			{
+				len += (sp[4].f)(ap);
+				_putchar(fptr[k]);
+				len++;
+			}
+			
 		}
+		if (fptr[k] == '\0')
+			break;
+	
 	k++;
 	}
+	if (fptr == NULL)
+		len = -1;
 va_end(ap);
 return (len);
 }
