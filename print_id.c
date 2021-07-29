@@ -10,11 +10,14 @@
 #include "holberton.h"
 int print_i(va_list ap)
 {
-	int i;
+	int i, len;
 
 	i = va_arg(ap, int);
 	print(i);
-	return (1);
+	len = count(i);
+	if (i < 0)
+		return (len + 1);
+	return (len);
 }
 /**
  * print_d - function prints decimals
@@ -24,11 +27,14 @@ int print_i(va_list ap)
  */
 int print_d(va_list ap)
 {
-	int i;
+	int i, len;
 
 	i = va_arg(ap, int);
 	print(i);
-	return (1);
+	len = count(i);
+	if (i < 0)
+		return (len + 1);
+	return (len);
 }
 /**
  * print_p - function prints percent sign
@@ -54,6 +60,7 @@ int print_p(va_list ap)
 void print(int n)
 {
 	unsigned int v;
+
 	v = n;
 	if (n < 0)
 	{
@@ -61,8 +68,19 @@ void print(int n)
 		v = -n;
 	}
 	if (v / 10)
-		print(v / 10);
+		print((v / 10));
 	_putchar(v % 10 + '0');
+}
+int count(int n)
+{
+	int digits = !n;
+
+	while(n)
+	{
+		digits++;
+		n /= 10;
+	}
+	return (digits);
 }
 
 /**
@@ -73,19 +91,19 @@ void print(int n)
 
 int print_u(va_list arg)
 {
-int dv = 1, i, resp;
-unsigned int n = va_arg(arg, unsigned int);
+	int dv = 1, i, resp;
+	unsigned int n = va_arg(arg, unsigned int);
 
-for (i = 0; n / dv > 9; i++, dv *= 10)
-;
+	for (i = 0; n / dv > 9; i++, dv *= 10)
+	;
 
-for (; dv >= 1; n %= dv, dv /= 10)
-{
-resp = n / dv;
-_putchar('0' + resp);
-}
-return (i + 1);
-}
+	for (; dv >= 1; n %= dv, dv /= 10)
+	{
+	resp = n / dv;
+	_putchar('0' + resp);
+	}
+	return (i + 1);
+	}
 /**
  * print_o - takes an unsigned int and prints it in octal notation
  * @o: unsigned int to print
