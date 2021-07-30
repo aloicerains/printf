@@ -10,9 +10,7 @@
 #include "holberton.h"
 int print_c(va_list ap)
 {
-	unsigned int i;
-
-	i = va_arg(ap, int);
+	unsigned int i = va_arg(ap, int);
 	_putchar(i);
 	return (1);
 }
